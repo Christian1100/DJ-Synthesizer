@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useState } from "react";
 
 const UploadingVideo = () => {
-    const [files, setFiles] = useState(null);
+    const [file, setFile] = useState(null);
     const inputRef = useRef();
 
     const dragOverManager = (event) => {
@@ -11,14 +11,15 @@ const UploadingVideo = () => {
 
     const dropManager = (event) => {
         event.preventDefault();
-        setFiles(event.dataTransfer.files)
+        setFile(URL.createObjectURL(event.dataTransfer.files[0]));
     };
-
-    if (files) return (
+    
+    if (file)
+        return (
         <div className="uploads">
-            <ul>
-                {Array.from(files).map((file, idx) => <li key={idx}>{file.name}</li>)}
-            </ul>
+            <video width="750" height="500" controls>
+            <source src={file} type="video/mp4"/>
+            </video>
         </div>
     )
 
@@ -29,7 +30,7 @@ const UploadingVideo = () => {
 
                     <input 
                         type="file" 
-                        onChange={(event) => setFiles(event.target.files)} 
+                        onChange={(event) => setFile(URL.createObjectURL(event.target.files[0]))} 
                         hidden 
                         ref={inputRef}
                         accept="video/*">

@@ -17,7 +17,16 @@ const UploadingVideo = () => {
     if (file)
         return (
         <div className="uploads">
-            <video width="750" height="500" controls>
+            <div>
+                <select id="video-filter" defaultValue={"none"}>
+                    <option id="none">none</option>
+                    <option id="invert">invert</option>
+                    <option id="colorTint">color tint</option>
+                    <option id="colorGradient">color gradient</option>
+                </select>
+            </div>
+            <canvas id="video-canvas" width={750} height={500}></canvas>
+            <video id="video-source" src={file} width={750} height={500} autoPlay loop muted >
             <source src={file} type="video/mp4"/>
             </video>
         </div>

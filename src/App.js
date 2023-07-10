@@ -13,6 +13,4 @@ function App() {
   );
 }
 
-<VideoFilter/>
-
 export default App;

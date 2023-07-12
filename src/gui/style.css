@@ -1,19 +1,8 @@
-#dj-tool {
-    width: 400px;
-    height: 600px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #333;
-    padding: 20px;
-    border-radius: 10px;
 
-}
 
-#big-box{
+#big-box-1 {
     width: 1500px;
-    height: 1240px;
+    height: 1320px;
     background-color: #f0f0f0;
     border: 4px solid black;
     margin-top: 100px;
@@ -825,7 +814,858 @@ button:hover {
     margin-left: 740px;
     margin-bottom: 0px;
     border-radius: 5px;
+}#dj-tool {
+     width: 400px;
+     height: 600px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     background-color: #333;
+     padding: 20px;
+     border-radius: 10px;
+
+ }
+
+#big-box{
+    width: 1500px;
+    height: 1240px;
+    background-color: #f0f0f0;
+    border: 4px solid black;
+    margin-top: 100px;
+    margin-left: 150px;
 }
+
+/*    -------------- DJ BOX ------------------   */
+#dj-box-2 {
+    width: 700px;
+    height: 400px;
+    background-color: #2c2e2e;
+    border: 4px solid black;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 200px;
+    border-radius: 80px;
+
+}
+/*    ---------------------------------------   */
+
+
+/*    ------------- RoundButtons inside the Dj  -------------------   */
+
+
+/*    ------------- + low  -  -------------------   */
+#tu-plus-min-low {
+    width: 150px;
+    height: 100px;
+    background-color: #2c2e2e;
+    border: 0px solid black;
+    margin-left: 50px;
+    margin-top: 10px;
+    border-radius: 10px;
+
+}
+#turntable-mp-low {
+    width: 80px;
+    height: 80px;
+    background-color: dimgray;
+    border-radius: 50%;
+    position: relative;
+    left: 25px;
+    cursor: grab;
+    margin-top: 0px;
+    overflow: hidden;
+    border: 2px solid black;
+}
+#t1-text-mp-low {
+    text-align: center;
+    margin-top: 0px;
+    margin-left: -20px;
+}
+p{
+    color: white;
+    font-size: 25px;
+    line-height: 0.1;
+    word-spacing: 10px;
+
+}
+#line-mp-low {
+    position: absolute;
+    top: 0;
+    left: 40%;
+    width: 20px;
+    height: 50%;
+    background-color: white;
+    transform-origin: center bottom;
+}
+#knob-mp-low {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: grab;
+}
+
+
+
+
+
+/*    ------------- + middle  -  -------------------   */
+#tu-plus-min-middle{
+    width: 150px;
+    height: 50px;
+    background-color: #2c2e2e;
+    border: 0px solid black;
+    margin-left: 270px;
+    margin-top: -100px;
+    border-radius: 10px;
+
+}
+#turntable-mp-middle {
+    width: 80px;
+    height: 80px;
+    background-color: dimgray;
+    border-radius: 50%;
+    position: relative;
+    left: 25px;
+    cursor: grab;
+    margin-top: 0px;
+    overflow: hidden;
+    border: 2px solid black;
+}
+#t1-text-mp-middle {
+    text-align: center;
+    margin-top: 0px;
+    margin-left: -20px;
+}
+p{
+    color: white;
+    font-size: 25px;
+    line-height: 0.1;
+    word-spacing: 10px;
+
+}
+#line-mp-middle{
+    position: absolute;
+    top: 0;
+    left: 40%;
+    width: 20px;
+    height: 50%;
+    background-color: white;
+    transform-origin: center bottom;
+}
+#knob-mp-middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: grab;
+}
+/*    -------------  -------------------   */
+
+
+
+/*    ------------- + high  -  -------------------   */
+#tu-plus-min-high{
+    width: 150px;
+    height: 100px;
+    background-color: #2c2e2e;
+    border: 0px solid black;
+    margin-left: 500px;
+    margin-top: -50px;
+    border-radius: 10px;
+
+}
+#turntable-mp-high {
+    width: 80px;
+    height: 80px;
+    background-color: dimgray;
+    border-radius: 50%;
+    position: relative;
+    left: 25px;
+    cursor: grab;
+    margin-top: 0px;
+    overflow: hidden;
+    border: 2px solid black;
+}
+#t1-text-mp-high {
+    text-align: center;
+    margin-top: 0px;
+    margin-left: -20px;
+}
+p{
+    color: white;
+    font-size: 25px;
+    line-height: 0.1;
+    word-spacing: 10px;
+
+}
+#line-mp-high{
+    position: absolute;
+    top: 0;
+    left: 40%;
+    width: 20px;
+    height: 50%;
+    background-color: white;
+    transform-origin: center bottom;
+}
+#knob-mp-high {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: grab;
+}
+/*    -------------  -------------------   */
+
+/*    -------------  high    -------------------   */
+#tu-high{
+    width: 150px;
+    height: 100px;
+    background-color: #2c2e2e;
+    border: 0px solid black;
+    margin-left: 400px;
+    margin-top: 100px;
+    border-radius: 10px;
+
+}
+#turntable-high {
+    width: 80px;
+    height: 80px;
+    background-color: dimgray;
+    border-radius: 50%;
+    position: relative;
+    left: 25px;
+    cursor: grab;
+    margin-top: 0px;
+    overflow: hidden;
+    border: 2px solid black;
+}
+#t1-text-high {
+    text-align: center;
+    margin-top: 0px;
+    margin-left: -20px;
+}
+p{
+    color: white;
+    font-size: 25px;
+    line-height: 0.1;
+    word-spacing: 10px;
+
+}
+#line-high{
+    position: absolute;
+    top: 0;
+    left: 40%;
+    width: 20px;
+    height: 50%;
+    background-color: white;
+    transform-origin: center bottom;
+}
+#knob-high {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: grab;
+}
+/*    -------------  -------------------   */
+
+/*    ------------- low  -------------------   */
+#tu-low-1{
+    width: 150px;
+    height: 100px;
+    background-color: #2c2e2e;
+    border: 0px solid black;
+    margin-left: 150px;
+    margin-top: -100px;
+    border-radius: 10px;
+
+}
+#turntable-low-1 {
+    width: 80px;
+    height: 80px;
+    background-color: dimgray;
+    border-radius: 50%;
+    position: relative;
+    left: 25px;
+    cursor: grab;
+    margin-top: 0px;
+    overflow: hidden;
+    border: 2px solid black;
+}
+#t1-text-low-1 {
+    text-align: center;
+    margin-top: 0px;
+    margin-left: -20px;
+}
+p{
+    color: white;
+    font-size: 25px;
+    line-height: 0.1;
+    word-spacing: 10px;
+
+}
+#line-low-1{
+    position: absolute;
+    top: 0;
+    left: 40%;
+    width: 20px;
+    height: 50%;
+    background-color: white;
+    transform-origin: center bottom;
+}
+#knob-low-1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: grab;
+}
+/*    -------------  -------------------   */
+
+/* ------------- slider --------------- */
+
+#sliders-box {
+    width: 0px;
+    height: 0px;
+    background-color: #2c2e2e;
+    border: 0px solid black;
+    margin-left: 350px;
+    margin-top: -40px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(270deg);
+}
+
+input[type="range"] {
+    width: 200px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transform: rotate(180deg);
+}
+/* ---------------------------- */
+
+
+/*    ------------- Dj box 1   -------------------   */
+
+#dj-box-1 {
+    width: 700px;
+    height: 100px;
+    background-color: #2c2e2e;
+    border: 4px solid black;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 200px;
+    border-radius: 80px;
+
+}
+
+/*    ------------- attack  -------------------   */
+#tu-attack{
+    width: 50px;
+    height: 50px;
+    background-color: #2c2e2e;
+    border: 0px solid black;
+    margin-left: 200px;
+    margin-top: 10px;
+    border-radius: 10px;
+
+}
+#turntable-attack {
+    width: 50px;
+    height: 50px;
+    background-color: dimgray;
+    border-radius: 50%;
+    position: relative;
+    left: 25px;
+    cursor: grab;
+    margin-top: 0px;
+    overflow: hidden;
+    border: 2px solid black;
+}
+#word-attack {
+    text-align: center;
+    margin-top: 0px;
+    margin-left: 20px;
+}
+p1{
+    color: white;
+    font-size: 15px;
+    line-height: 0.1;
+    word-spacing: 10px;
+
+}
+#line-attack{
+    position: absolute;
+    top: 0;
+    left: 40%;
+    width: 15px;
+    height: 50%;
+    background-color: white;
+    transform-origin: center bottom;
+}
+#knob-attack {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: grab;
+}
+/*    -------------  -------------------   */
+
+
+/*    ------------- decay   -------------------   */
+#tu-decay {
+    width: 50px;
+    height: 50px;
+    background-color: #2c2e2e;
+    border: 0px solid black;
+    margin-left: 350px;
+    margin-top: -50px;
+    border-radius: 10px;
+
+}
+#turntable-decay  {
+    width: 50px;
+    height: 50px;
+    background-color: dimgray;
+    border-radius: 50%;
+    position: relative;
+    left: 25px;
+    cursor: grab;
+    margin-top: 0px;
+    overflow: hidden;
+    border: 2px solid black;
+}
+#word-decay  {
+    text-align: center;
+    margin-top: 0px;
+    margin-left: 20px;
+}
+p1{
+    color: white;
+    font-size: 15px;
+    line-height: 0.1;
+    word-spacing: 10px;
+
+}
+#line-decay {
+    position: absolute;
+    top: 0;
+    left: 40%;
+    width: 15px;
+    height: 50%;
+    background-color: white;
+    transform-origin: center bottom;
+}
+#knob-decay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: grab;
+}
+/*    -------------  -------------------   */
+
+
+/*    ------------- sustain  -------------------   */
+#tu-sustain{
+    width: 50px;
+    height: 50px;
+    background-color: #2c2e2e;
+    border: 0px solid black;
+    margin-left: 500px;
+    margin-top: -50px;
+    border-radius: 10px;
+
+}
+#turntable-sustain {
+    width: 50px;
+    height: 50px;
+    background-color: dimgray;
+    border-radius: 50%;
+    position: relative;
+    left: 25px;
+    cursor: grab;
+    margin-top: 0px;
+    overflow: hidden;
+    border: 2px solid black;
+}
+#word-sustain{
+    text-align: center;
+    margin-top: 0px;
+    margin-left: 20px;
+}
+p1{
+    color: white;
+    font-size: 15px;
+    line-height: 0.1;
+    word-spacing: 10px;
+
+}
+#line-sustain{
+    position: absolute;
+    top: 0;
+    left: 40%;
+    width: 15px;
+    height: 50%;
+    background-color: white;
+    transform-origin: center bottom;
+}
+#knob-sustain {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: grab;
+}
+/*    -------------  -------------------   */
+
+
+/*    ------------- release  -------------------   */
+#tu-release{
+    width: 50px;
+    height: 50px;
+    background-color: #2c2e2e;
+    border: 0px solid black;
+    margin-left: 70px;
+    margin-top: -50px;
+    border-radius: 10px;
+
+}
+#turntable-release {
+    width: 50px;
+    height: 50px;
+    background-color: dimgray;
+    border-radius: 50%;
+    position: relative;
+    left: 25px;
+    cursor: grab;
+    margin-top: 0px;
+    overflow: hidden;
+    border: 2px solid black;
+}
+#word-release {
+    text-align: center;
+    margin-top: 0px;
+    margin-left: 20px;
+}
+p1{
+    color: white;
+    font-size: 15px;
+    line-height: 0.1;
+    word-spacing: 10px;
+
+}
+#line-release{
+    position: absolute;
+    top: 0;
+    left: 40%;
+    width: 15px;
+    height: 50%;
+    background-color: white;
+    transform-origin: center bottom;
+}
+#knob-release {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: grab;
+}
+/*    -------------  -------------------   */
+
+
+
+
+
+
+
+
+/*    ------------- high 1  & high 2 & low -------------------
+
+#tu-high-2 {
+    width: 150px;
+    height: 100px;
+    background-color: #2c2e2e;
+    border: 0px solid black;
+    margin-left: 480px;
+    margin-top: -250px;
+    border-radius: 10px;
+
+}
+
+#tu-high-1 {
+    width: 150px;
+    height: 100px;
+    background-color: #2c2e2e;
+    border: 0px solid black;
+    margin-left: 70px;
+    margin-top: 80px;
+    border-radius: 10px;
+
+}
+
+#tu-low {
+    width: 150px;
+    height: 100px;
+    background-color: #2c2e2e;
+    border: 0px solid black;
+    margin-left: 460px;
+    margin-top: 150px;
+    border-radius: 10px;
+
+}
+#word-high {
+    text-align: center;
+    margin-top: 10px;
+}
+#word-200Hz{
+    text-align: start;
+    margin-top: -150px;
+    margin-left: -30px;
+}
+#word-20Hz{
+    text-align: start;
+    margin-top: 100px;
+    margin-left: -30px;
+}
+#word-200KHz{
+    text-align: start;
+    margin-top: -120px;
+    margin-left: 130px;
+}
+#word-20KHz{
+    text-align: start;
+    margin-top: 100px;
+    margin-left: 140px;
+}
+
+   ------------- attack & decay & sustain & release  -------------------   */
+
+#word {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#tu-3-box {
+    width: 100px;
+    height: 100px;
+    background-color: #2c2e2e;
+    border: 0px solid black;
+    margin-left: 30px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+#tu-4-box {
+    width: 100px;
+    height: 100px;
+    background-color: #2c2e2e;
+    border: 0px solid black;
+    margin-left: 110px;
+    margin-top: -100px;
+    border-radius: 10px;
+}
+#tu-5-box {
+    width: 100px;
+    height: 100px;
+    background-color: #2c2e2e;
+    border: 0px solid black;
+    margin-left: 190px;
+    margin-top: -100px;
+    border-radius: 10px;
+}
+#tu-6-box {
+    width: 100px;
+    height: 100px;
+    background-color: #2c2e2e;
+    border: 0px solid black;
+    margin-left: 270px;
+    margin-top: -100px;
+    border-radius: 10px;
+}
+#knob {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: grab;
+}
+
+#line-1 {
+    position: absolute;
+    top: 0;
+    left: 40%;
+    width: 10px;
+    height: 50%;
+    background-color: white;
+    transform-origin: center bottom;
+}
+
+
+/*    ---------------------------------------   */
+/*    ------------- Piano------------------- */
+
+
+#piano-box {
+    width: 762px;
+    height: 200px;
+    background-color: #f0f0f0;
+    border: 2px solid black;
+    border-radius: 0px;
+
+    transform: rotate(180deg);
+    display: flex;
+    justify-content: flex-end;
+}
+
+#piano-keys {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    height: 100%;
+}
+
+
+.white-key {
+    flex-grow: 1;
+    height: 100%;
+    background-color: white;
+    border-right: 1px solid black;
+}
+
+.black-key {
+    width: 30px;
+    height: 120px;
+    background-color: black;
+    margin-left: -15px;
+    margin-right: -15px;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.white-key:hover {
+    background-color: lightgray;
+}
+
+.black-key:hover {
+    background-color: darkgray;
+}
+
+
+
+
+
+/*    ---------------------------------------   */
+/*    ------------- Waves -------------------   */
+
+
+#box-of-sound-waves-1 {
+    width: 700px;
+    height: 250px;
+    background-color: #f0f0f0;
+    border: 3px solid black;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    border-radius: 80px;
+}
+
+.horizontal-line-1 {
+    width: 700px;
+    margin-top: 150px;
+    border: none;
+    border-top: 2px solid black;
+}
+
+#box-of-sound-waves-2 {
+    width: 700px;
+    height: 250px;
+    background-color: #f0f0f0;
+    border: 3px solid black;
+    margin-top: -160px;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    border-radius: 80px;
+}
+
+.horizontal-line-2 {
+    width: 700px;
+    margin-top: 150px;
+    border: none;
+    border-top: 2px solid black;
+}
+
+
+/*    ---------------------------------------   */
+
+/*    ------------- Video-------------------   */
+
+#video-box {
+    width: 725px;
+    height: 1100px;
+    background-color: #f0f0f0;
+    border: 3px solid black;
+    margin-top:-1310px;
+    margin-left: 765px;
+    margin-bottom: 0px;
+    border-radius: 5px;
+}
+#play-pause {
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+
+
 #play-pause {
     width: 24px;
     height: 24px;

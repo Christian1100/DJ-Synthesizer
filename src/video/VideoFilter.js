@@ -118,16 +118,16 @@ function generateCircle(data, width, height, circle) {
             const distanceToCenter = Math.sqrt((x - width / 2 + circle.centerX) ** 2 + (y - height / 2 + circle.centerY) ** 2);
 
             if (distanceToCenter <= circle.radius) {
-                let strength;
+                let opacity;
                 if (distanceToCenter < innerCircleRadius) {
-                    strength = circle.opacity;
+                    opacity = circle.opacity;
                 } else {
-                    strength = (circle.radius - distanceToCenter) / (circle.radius - innerCircleRadius) * circle.opacity;
+                    opacity = (circle.radius - distanceToCenter) / (circle.radius - innerCircleRadius) * circle.opacity;
                 }
 
-                data[offset + 0] += (circle.color.r - data[offset + 0]) * strength;
-                data[offset + 1] += (circle.color.g - data[offset + 1]) * strength;
-                data[offset + 2] += (circle.color.b - data[offset + 2]) * strength;
+                data[offset + 0] += (circle.color.r - data[offset + 0]) * opacity;
+                data[offset + 1] += (circle.color.g - data[offset + 1]) * opacity;
+                data[offset + 2] += (circle.color.b - data[offset + 2]) * opacity;
             }
         }
     }

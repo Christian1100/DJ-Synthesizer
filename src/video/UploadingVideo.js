@@ -4,6 +4,7 @@ import { useState } from "react";
 const UploadingVideo = () => {
     const [file, setFile] = useState(null);
     const inputRef = useRef();
+    const isVideo =["video/ogm", "video/wmv", "video/mpg", "video/webm", "video/ogv", "video/mov", "video/asx", "video/mpeg", "video/mp4", "video/m4v", "video/avi"];
 
     const dragOverManager = (event) => {
         event.preventDefault();
@@ -11,7 +12,19 @@ const UploadingVideo = () => {
 
     const dropManager = (event) => {
         event.preventDefault();
-        setFile(URL.createObjectURL(event.dataTransfer.files[0]));
+        selectFile(event.dataTransfer.files[0]);
+    };
+
+    const playVideo = () => {
+        const player = document.getElementById("video-source");
+        player.play();
+    };
+
+    const selectFile = (videoFile) => {
+        if (!isVideo.includes(videoFile.type))
+            alert("Upload a video");
+        else
+            setFile(URL.createObjectURL(videoFile));
     };
     
     if (file)
@@ -21,13 +34,12 @@ const UploadingVideo = () => {
                 <select id="video-filter" defaultValue={"none"}>
                     <option id="none">none</option>
                     <option id="invert">invert</option>
-                    <option id="colorTint">color tint</option>
-                    <option id="colorGradient">color gradient</option>
+                    <option id="lightshow">lightshow</option>
                 </select>
+                <button id="video-play" onClick={() => playVideo()}>Play</button>
             </div>
             <canvas id="video-canvas" width={750} height={500}></canvas>
-            <video id="video-source" src={file} width={750} height={500} autoPlay loop muted >
-            <source src={file} type="video/mp4"/>
+            <video id="video-source" src={file} width={750} height={500} loop muted >
             </video>
         </div>
     )
@@ -39,7 +51,7 @@ const UploadingVideo = () => {
 
                     <input 
                         type="file" 
-                        onChange={(event) => setFile(URL.createObjectURL(event.target.files[0]))} 
+                        onChange={(event) => selectFile(event.target.files[0])} 
                         hidden 
                         ref={inputRef}
                         accept="video/*">

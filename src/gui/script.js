@@ -1,4 +1,3 @@
-
 var turntables = document.querySelectorAll('[id^="turntable"]');
 var rotations = [];
 
@@ -108,7 +107,3 @@ turntables.forEach(function(turntable, index) {
         }
     });
 });
-
-
-
-

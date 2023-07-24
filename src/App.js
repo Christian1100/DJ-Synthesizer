@@ -1,6 +1,8 @@
 import './App.css';
 import UploadingVideo from "./UploadingVideo";
 import AudioTestButton from './AudioTestButton';
+import Gui from "./gui/Gui";
+
 
 function App() {
   return (
@@ -8,6 +10,7 @@ function App() {
       <header className="App-header">
         <AudioTestButton />
         <UploadingVideo />
+        <Gui/>
       </header>
     </div>
   );

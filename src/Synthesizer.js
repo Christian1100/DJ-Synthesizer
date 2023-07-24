@@ -1,6 +1,13 @@
-const WAVE_LENGTH = 440;
 const VOLUME = 0.1;
 const EQ_FREQUENCIES = [30, 60, 120, 250, 500, 1000, 2000, 4000, 8000, 16000];
+// source: https://pages.mtu.edu/~suits/notefreqs.html
+// starting at C1
+const NOTE_FREQUENCIES = [
+	65.41, 69.30, 73.42, 77.78, 82.41, 87.31, 92.50, 98.00, 103.83, 110.00, 116.54, 123.47,
+	130.81, 138.59, 146.83, 155.56, 164.81, 174.61, 185.00, 196.00, 207.65, 220.00, 233.08, 246.94,
+	261.63, 277.18, 293.66, 311.13, 329.63, 349.23, 369.99, 392.00, 415.30, 440.00, 466.16, 493.88,
+	523.25,
+];
 
 export default class Synthesizer {
 	init() {
@@ -36,24 +43,53 @@ export default class Synthesizer {
 		}
 		
 		this.destination = previousNode;
+		this.noteOscillators = [];
+		
+		for (let i = 0; i < NOTE_FREQUENCIES.length; i++) {
+			this.noteOscillators[i] = null;
+		}
 		
 		this.isInit = true;
 	}
 	
-	playAudio() {
+	startNote(index) {
 		this.init();
+		
+		if (this.noteOscillators[index] !== null) {
+			return;
+		}
+		
+		this.stopNote(index);
+		
+		const frequency = NOTE_FREQUENCIES[index];
 		
 		const oscillator = this.context.createOscillator();
 		oscillator.type = "sawtooth";
-		oscillator.frequency.setValueAtTime(WAVE_LENGTH, this.context.currentTime);
+		oscillator.frequency.setValueAtTime(frequency, this.context.currentTime);
 		oscillator.connect(this.destination);
 		oscillator.start();
+		
+		this.noteOscillators[index] = oscillator;
+	}
+	
+	stopNote(index) {
+		this.init();
+		
+		const oscillator = this.noteOscillators[index];
+		
+		if (oscillator === null) {
+			return;
+		}
+		
+		oscillator.stop();
+		this.noteOscillators[index] = null;
 	}
 	
 	setEqualizer(index, value) {
+		this.init();
+		
 		const node = this.eqNodes[index];
 		
 		node.gain.setValueAtTime(value * 50 - 25, this.context.currentTime);
-		console.log(node.gain.value);
 	}
 }

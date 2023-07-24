@@ -24,8 +24,6 @@ const EqualizerSlider = ({ synthesizer, frequency, index }) => {
 }
 
 const Equalizer = ({synthesizer}) => {
-  console.log(synthesizer);
-  
   const frequencies = ['30HZ', '60HZ', '120HZ', '250HZ', '500HZ', '1K', '2K', '4K', '8K', '16K'];
   
   return (

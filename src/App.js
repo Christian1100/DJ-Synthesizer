@@ -83,9 +83,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Equalizer synthesizer={synthesizer.current} />
-        <UploadingVideo />
-        <Gui/>
+        <Gui synthesizer={synthesizer.current}/>
       </header>
     </div>
   );

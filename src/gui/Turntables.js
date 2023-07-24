@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 
 const TurntableComponent = ({ turntableId, knobId, lineId, width, height }) => {
     const [rotations, setRotations] = useState(0);
@@ -25,6 +25,15 @@ const TurntableComponent = ({ turntableId, knobId, lineId, width, height }) => {
             prevMouseX.current = angle;
         }
     };
+
+    const mapRotationToValue = (rotation) => {
+        // Umrechnung der Rotation in Grad in einen Wert zwischen 0 und 100
+        const value = ((rotation % 360) + 360) % 360; // Stellt sicher, dass der Wert immer positiv ist
+        const mappedValue = Math.round((value / 360) * 100);
+        return mappedValue;
+    };
+
+    console.log("V: " + mapRotationToValue(rotations));
 
     return (
         <div>

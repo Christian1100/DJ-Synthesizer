@@ -1,9 +1,11 @@
 import './style.css';
 import './Turntables.js';
 import Turntables from "./Turntables.js";
+import Equalizer from "./Equalizer/Equalizer";
+import UploadingVideo from "../UploadingVideo";
 
+function App({synthesizer})  {
 
-function App() {
 
 
     return (
@@ -25,7 +27,7 @@ function App() {
                     <Turntables turntableId="turntable-attack" knobId="knob-attack" lineId="line-attack" width='50px' height='50px'/>
 
                     <div id="word-attack">
-                        <p1> Attack</p1>
+                        <p> Attack</p>
                     </div>
                 </div>
 
@@ -34,7 +36,7 @@ function App() {
                     <Turntables turntableId="turntable-release" knobId="knob-release" lineId="line-release" width='50px' height='50px'/>
 
                     <div id="word-release">
-                        <p1> Release</p1>
+                        <p> Release</p>
                     </div>
                 </div>
 
@@ -43,7 +45,7 @@ function App() {
                     <Turntables turntableId="turntable-sustain" knobId="knob-sustain" lineId="line-sustain" width='50px' height='50px'/>
 
                     <div id="word-sustain">
-                        <p1> Sustain</p1>
+                        <p> Sustain</p>
                     </div>
                 </div>
 
@@ -52,7 +54,7 @@ function App() {
                     <Turntables turntableId="turntable-decay" knobId="knob-decay" lineId="line-decay" width='50px' height='50px'/>
 
                     <div id="word-decay">
-                        <p1> Decay</p1>
+                        <p> Decay</p>
                     </div>
                 </div>
 
@@ -60,6 +62,9 @@ function App() {
             </div>
 
             <div id="box-of-sound-waves-2">
+
+                <Equalizer synthesizer={synthesizer}/>
+
                 <div className="horizontal-line-2"></div>
                 <p1></p1>
             </div>
@@ -173,8 +178,9 @@ function App() {
 
 
             <div id="video-box">
-
+                <UploadingVideo />
                 <div id="video-player">
+
 
                 </div>
 

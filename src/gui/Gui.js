@@ -13,48 +13,38 @@ function App({synthesizer})  {
 
         <div id="big-box-1">
 
-
             <div id="box-of-sound-waves-1">
                 <div className="horizontal-line-1"></div>
                 <p1></p1>
             </div>
 
-
             <div id="dj-box-1">
 
                 <div id="tu-attack">
-
-                    <Turntables turntableId="turntable-attack" knobId="knob-attack" lineId="line-attack" width='50px' height='50px'/>
-
+                    <Turntables turntableId="turntable-attack" knobId="knob-attack" lineId="line-attack" width='50px' height='50px' onChange={value => synthesizer.setAttack(value)}/>
                     <div id="word-attack">
                         <p> Attack</p>
                     </div>
                 </div>
 
-                <div id="tu-release">
-
-                    <Turntables turntableId="turntable-release" knobId="knob-release" lineId="line-release" width='50px' height='50px'/>
-
-                    <div id="word-release">
-                        <p> Release</p>
+                <div id="tu-decay">
+                    <Turntables turntableId="turntable-decay" knobId="knob-decay" lineId="line-decay" width='50px' height='50px' onChange={value => synthesizer.setDecay(value)}/>
+                    <div id="word-decay">
+                        <p> Decay</p>
                     </div>
                 </div>
 
                 <div id="tu-sustain">
-
-                    <Turntables turntableId="turntable-sustain" knobId="knob-sustain" lineId="line-sustain" width='50px' height='50px'/>
-
+                    <Turntables turntableId="turntable-sustain" knobId="knob-sustain" lineId="line-sustain" width='50px' height='50px' onChange={value => synthesizer.setSustain(value)}/>
                     <div id="word-sustain">
                         <p> Sustain</p>
                     </div>
                 </div>
 
-                <div id="tu-decay">
-
-                    <Turntables turntableId="turntable-decay" knobId="knob-decay" lineId="line-decay" width='50px' height='50px'/>
-
-                    <div id="word-decay">
-                        <p> Decay</p>
+                <div id="tu-release">
+                    <Turntables turntableId="turntable-release" knobId="knob-release" lineId="line-release" width='50px' height='50px' onChange={value => synthesizer.setRelease(value)}/>
+                    <div id="word-release">
+                        <p> Release</p>
                     </div>
                 </div>
 

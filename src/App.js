@@ -1,5 +1,5 @@
 import './App.css';
-import UploadingVideo from "./UploadingVideo";
+import UploadingVideo from "./video/UploadingVideo";
 import Gui from "./gui/Gui";
 import Equalizer from './gui/Equalizer/Equalizer';
 import { useEffect, useRef } from 'react';

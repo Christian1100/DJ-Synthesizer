@@ -2,7 +2,9 @@ import './style.css';
 import './Turntables.js';
 import Turntables from "./Turntables.js";
 import Equalizer from "./Equalizer/Equalizer";
-import UploadingVideo from "../UploadingVideo";
+import UploadingVideo from "../video/UploadingVideo";
+import VideoFilter from "../video/VideoFilter";
+import Graph from './Graph';
 
 function App({synthesizer})  {
 
@@ -15,6 +17,7 @@ function App({synthesizer})  {
 
 
             <div id="box-of-sound-waves-1">
+                <Graph/>
                 <div className="horizontal-line-1"></div>
                 <p1></p1>
             </div>
@@ -178,12 +181,8 @@ function App({synthesizer})  {
 
 
             <div id="video-box">
-                <UploadingVideo />
-                <div id="video-player">
-
-
-                </div>
-
+            <UploadingVideo />
+            <VideoFilter />
             </div>
 
         </div>

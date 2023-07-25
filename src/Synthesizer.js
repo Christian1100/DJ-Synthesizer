@@ -49,6 +49,11 @@ export default class Synthesizer {
 			this.noteOscillators[i] = null;
 		}
 		
+		this.attack = 0;
+		this.decay = 0;
+		this.sustain = 0;
+		this.release = 0;
+		
 		this.isInit = true;
 	}
 	
@@ -66,7 +71,15 @@ export default class Synthesizer {
 		const oscillator = this.context.createOscillator();
 		oscillator.type = "sawtooth";
 		oscillator.frequency.setValueAtTime(frequency, this.context.currentTime);
-		oscillator.connect(this.destination);
+		
+		const gain = this.context.createGain();
+		gain.gain.setValueAtTime(0, this.context.currentTime);
+		gain.gain.linearRampToValueAtTime(1, this.context.currentTime + this.attack);
+		gain.gain.linearRampToValueAtTime(this.sustain / 100, this.context.currentTime + this.attack + this.decay);
+		gain.gain.linearRampToValueAtTime(0, this.context.currentTime + this.attack + this.decay + this.release);
+		
+		gain.connect(this.destination);
+		oscillator.connect(gain);
 		oscillator.start();
 		
 		this.noteOscillators[index] = oscillator;
@@ -91,5 +104,29 @@ export default class Synthesizer {
 		const node = this.eqNodes[index];
 		
 		node.gain.setValueAtTime(value * 50 - 25, this.context.currentTime);
+	}
+	
+	setAttack(value) {
+		console.log("Attack: " + value);
+		
+		this.attack = value;
+	}
+	
+	setDecay(value) {
+		console.log("Decay: " + value);
+		
+		this.decay = value;
+	}
+	
+	setSustain(value) {
+		console.log("Sustain: " + value);
+		
+		this.sustain = value;
+	}
+	
+	setRelease(value) {
+		console.log("Release: " + value);
+		
+		this.release = value;
 	}
 }

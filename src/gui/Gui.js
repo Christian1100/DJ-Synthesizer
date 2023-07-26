@@ -3,15 +3,25 @@ import './Turntables.js';
 import Turntables from "./Turntables.js";
 import Equalizer from "./Equalizer/Equalizer";
 import UploadingVideo from "../video/UploadingVideo";
+import ADSR from './ADSR';
+import {useEffect, useState} from 'react';
 
 function App({synthesizer})  {
-
-
-
+    const [attack, setAttack] = useState(0);
+    const [decay, setDecay] = useState(0);
+    const [sustain, setSustain] = useState(0);
+    const [release, setRelease] = useState(0);
+    
+    useEffect(() => synthesizer.setAttack(attack), [synthesizer, attack]);
+    useEffect(() => synthesizer.setDecay(decay), [synthesizer, decay]);
+    useEffect(() => synthesizer.setSustain(sustain), [synthesizer, sustain]);
+    useEffect(() => synthesizer.setRelease(release), [synthesizer, release]);
+    
     return (
 
 
         <div id="big-box-1">
+            <ADSR attack={attack} decay={decay} sustain={sustain} release={release} />
 
 
             <div id="box-of-sound-waves-1">
@@ -24,7 +34,7 @@ function App({synthesizer})  {
 
                 <div id="tu-attack">
 
-                    <Turntables turntableId="turntable-attack" knobId="knob-attack" lineId="line-attack" width='50px' height='50px' onChange={value => synthesizer.setDecay(value)}/>
+                    <Turntables turntableId="turntable-attack" knobId="knob-attack" lineId="line-attack" width='50px' height='50px' onChange={value => setDecay(value)}/>
 
                     <div id="word-attack">
                         <p> Decay</p>
@@ -33,7 +43,7 @@ function App({synthesizer})  {
 
                 <div id="tu-release">
 
-                    <Turntables turntableId="turntable-release" knobId="knob-release" lineId="line-release" width='50px' height='50px' onChange={value => synthesizer.setAttack(value)}/>
+                    <Turntables turntableId="turntable-release" knobId="knob-release" lineId="line-release" width='50px' height='50px' onChange={value => setAttack(value)}/>
 
                     <div id="word-release">
                         <p> Attack</p>
@@ -42,7 +52,7 @@ function App({synthesizer})  {
 
                 <div id="tu-sustain">
 
-                    <Turntables turntableId="turntable-sustain" knobId="knob-sustain" lineId="line-sustain" width='50px' height='50px' onChange={value => synthesizer.setRelease(value)}/>
+                    <Turntables turntableId="turntable-sustain" knobId="knob-sustain" lineId="line-sustain" width='50px' height='50px' onChange={value => setRelease(value)}/>
 
                     <div id="word-sustain">
                         <p> Release</p>
@@ -51,7 +61,7 @@ function App({synthesizer})  {
 
                 <div id="tu-decay">
 
-                    <Turntables turntableId="turntable-decay" knobId="knob-decay" lineId="line-decay" width='50px' height='50px' onChange={value => synthesizer.setSustain(value)}/>
+                    <Turntables turntableId="turntable-decay" knobId="knob-decay" lineId="line-decay" width='50px' height='50px' onChange={value => setSustain(value)}/>
 
                     <div id="word-decay">
                         <p> Sustain</p>

@@ -1,10 +1,14 @@
 import React, {useState, useRef, useEffect} from 'react';
 
-const TurntableComponent = ({ turntableId, knobId, lineId, width, height }) => {
+const TurntableComponent = ({ turntableId, knobId, lineId, width, height, onChange }) => {
     const [rotations, setRotations] = useState(0);
     const isMouseDown = useRef(false);
     const prevMouseX = useRef(0);
-
+    
+    if (onChange === undefined) {
+        onChange = () => {};
+    }
+    
     const handleMouseDown = () => {
         isMouseDown.current = true;
     };
@@ -40,8 +44,8 @@ const TurntableComponent = ({ turntableId, knobId, lineId, width, height }) => {
         const value = ((rotations % 360) + 360) % 360; // Stellt sicher, dass der Wert immer positiv ist
         return Math.round((value / 360) * 100);
     };
-
-    console.log("V: " + mapRotationToValue(rotations));
+    
+    useEffect(() => onChange(mapRotationToValue(rotations)), [onChange, rotations]);
 
     return (
         <div>

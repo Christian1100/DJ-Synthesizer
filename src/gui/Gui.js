@@ -98,38 +98,17 @@ function App({synthesizer})  {
             <div id="dj-box-2-n">
 
 
-                <div id="tu-plus-min-low">
-
-                    <Turntables turntableId="turntable-plus-min-low" knobId="knob-plus-min-low" lineId="line-plus-min-low" width='100px' height='100px'/>
-
-                    <div id="t1-text-mp-low">
-                        <p> + low - </p>
-                    </div>
-                </div>
 
 
-                <div id="tu-plus-min-middle">
-                    <Turntables turntableId="turntable-plus-min-middle" knobId="knob-plus-min-middle" lineId="line-plus-min-middle" width='100px' height='100px'/>
-                    <div id="t1-text-mp-middle">
-                        <p> + middle - </p>
-                    </div>
-                </div>
-
-                <div id="tu-plus-min-high">
-                    <Turntables turntableId="turntable-plus-min-high" knobId="knob-plus-min-high" lineId="line-plus-min-high" width='100px' height='100px'/>
-                    <div id="t1-text-mp-high">
-                        <p> + high - </p>
-                    </div>
-                </div>
                 <div id="tu-high">
-                    <Turntables turntableId="turntable-high" knobId="knob-high" lineId="line-high" width='100px' height='100px' onChange={value => synthesizer.setDelayTime(value)}/>
+                    <Turntables turntableId="turntable-high" knobId="knob-high" lineId="line-high" width='120px' height='120px' onChange={value => synthesizer.setDelayTime(value)}/>
                     <div id="t1-text-high">
                         <p>Delay Time</p>
                     </div>
                 </div>
 
                 <div id="tu-low-1">
-                    <Turntables turntableId="turntable-low-1" knobId="knob-low-1" lineId="line-low-1" width='100px' height='100px' onChange={value => synthesizer.setDelayValue(value)}/>
+                    <Turntables turntableId="turntable-low-1" knobId="knob-low-1" lineId="line-low-1" width='120px' height='120px' onChange={value => synthesizer.setDelayValue(value)}/>
                     <div id="t1-text-low-1">
                         <p>Delay Amount</p>
                     </div>

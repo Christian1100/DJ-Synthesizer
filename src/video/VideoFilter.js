@@ -85,7 +85,6 @@ const callback = data => {
         result += value;
     }
     speed = result / 15000;
-    console.log(speed);
 };
 
 

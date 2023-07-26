@@ -52,7 +52,7 @@ class Note {
 		if (this.gain === null) {
 			return;
 		}
-
+		
 		const value = this.gain.gain.value;
 		this.gain.gain.cancelScheduledValues(this.context.currentTime);
 		this.gain.gain.setValueAtTime(value, this.context.currentTime);
@@ -71,8 +71,19 @@ export default class Synthesizer {
 		gain.gain.value = VOLUME;
 		gain.connect(this.context.destination);
 		
+		this.analyzer = this.context.createAnalyser();
+		this.analyzer.fftSize = 512;
+		this.analyzer.connect(gain);
+		this.frequencyDataArray = new Uint8Array(this.analyzer.frequencyBinCount);
+		
+		if (!this.frequencyCallback) {
+			this.frequencyCallback = () => {};
+		}
+		
+		setInterval(() => this.drawFrequency(), 100);
+		
 		this.eqNodes = [];
-		let previousNode = gain;
+		let previousNode = this.analyzer;
 		
 		for (let i = 0; i < EQ_FREQUENCIES.length; i++) {
 			const node = this.context.createBiquadFilter();
@@ -106,6 +117,16 @@ export default class Synthesizer {
 		this.release = 0;
 		
 		this.isInit = true;
+	}
+	
+	drawFrequency() {
+		this.analyzer.getByteFrequencyData(this.frequencyDataArray);
+		this.frequencyCallback(this.frequencyDataArray);
+	}
+	
+	setFrequencyCallback(callback) {
+		this.frequencyCallback = callback;
+		console.log(this.frequencyCallback);
 	}
 	
 	startNote(index) {

@@ -1,10 +1,22 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 
-const Graph = () => {
+const Graph = ({ synthesizer }) => {
   const [xScale, setXScale] = useState(1);
   const [yScale, setYScale] = useState(1);
   const [points, setPoints] = useState([{x: 50, y: 50}, {x: 100, y: 150}, {x: 300, y: 100}]); //TODO: Array mit Punkten füllen
 
+  useEffect(() => {synthesizer.setFrequencyCallback(data => {
+      let i = 0;
+      let points = [];
+      
+      for (const value of data) {
+          points[i] = {x: i, y: value};
+          i++;
+      }
+      
+      setPoints(points);
+  })}, [synthesizer, setPoints]);
+  
   return (
     <div>
       <svg width={500} height={250}>

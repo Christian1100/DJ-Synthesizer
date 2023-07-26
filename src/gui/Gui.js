@@ -16,7 +16,7 @@ function App({synthesizer})  {
         <div id="big-box-1">
 
             <div id="box-of-sound-waves-1">
-                <Graph/>
+                <Graph synthesizer={synthesizer}/>
                 <div className="horizontal-line-1"></div>
                 <p1></p1>
             </div>

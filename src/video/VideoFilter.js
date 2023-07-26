@@ -57,7 +57,7 @@ const VideoFilter = ({synthesizer}) => {
 let circleData = [];
 let lastTimestamp = 0;
 function lightshow(frame, width, height) {
-    if (circleData.length === 0) {
+    if (circleData == null || circleData.length === 0) {
         initCircleData();
     }
 

@@ -47,7 +47,7 @@ const UploadingVideo = () => {
     return (
         <>
             <div className="dropzone" onDragOver={dragOverManager} onDrop={dropManager}>
-                    <h2>Drag and Drop Video to Upload</h2>
+                    <h2 style={{color:"black"}}>Drag and Drop Video to Upload</h2>
 
                     <input 
                         type="file" 

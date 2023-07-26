@@ -1,7 +1,8 @@
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
 import VideoManipulator from "./VideoManipulator.js";
 
 let speed = 1.0;
+let alwaysAnimated = false;
 
 const VideoFilter = ({synthesizer}) => {
 
@@ -17,6 +18,10 @@ const VideoFilter = ({synthesizer}) => {
     render();
 
     function render() {
+        const checkbox = document.getElementById("video-checkbox");
+        if (checkbox != null)
+            alwaysAnimated = checkbox.checked;
+            
         const video = document.getElementById("video-source");
         if (video != null) {
         video.style.display = "none";
@@ -81,6 +86,12 @@ function lightshow(frame, width, height) {
 }
 
 const callback = data => {
+    
+    if (alwaysAnimated) {
+        speed = 1;
+        return;
+    }
+
     let result = 0;
     for (const value of data) {
         result += value;

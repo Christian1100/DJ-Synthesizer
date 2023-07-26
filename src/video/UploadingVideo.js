@@ -4,7 +4,7 @@ import { useState } from "react";
 const UploadingVideo = () => {
     const [file, setFile] = useState(null);
     const inputRef = useRef();
-    const isVideo =["video/ogm", "video/wmv", "video/mpg", "video/webm", "video/ogv", "video/mov", "video/asx", "video/mpeg", "video/mp4", "video/m4v", "video/avi"];
+    const isVideo =["video/ogm", "video/wmv", "video/mpg", "video/webm", "video/ogv", "video/mov", "video/asx", "video/mpeg", "video/mp4", "video/m4v", "video/avi", "video/quicktime"];
 
     const dragOverManager = (event) => {
         event.preventDefault();
@@ -21,6 +21,7 @@ const UploadingVideo = () => {
     };
 
     const selectFile = (videoFile) => {
+        console.log(videoFile.type);
         if (!isVideo.includes(videoFile.type))
             alert("Upload a video");
         else
@@ -37,6 +38,7 @@ const UploadingVideo = () => {
                     <option id="lightshow">lightshow</option>
                 </select>
                 <button id="video-play" onClick={() => playVideo()}>Play</button>
+                <label><input id="video-checkbox" type="checkbox" />Always animated</label>
             </div>
             <canvas id="video-canvas" width={750} height={500}></canvas>
             <video id="video-source" src={file} width={750} height={500} loop muted >

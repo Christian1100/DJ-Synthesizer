@@ -85,7 +85,7 @@ export default class Synthesizer {
 		this.delay.connect(this.delayGain);
 		this.delayGain.connect(this.delay);
 		
-		setInterval(() => this.drawFrequency(), 100);
+		setInterval(() => this.drawFrequency(), 1000);
 		
 		this.eqNodes = [];
 		let previousNode = this.analyzer;

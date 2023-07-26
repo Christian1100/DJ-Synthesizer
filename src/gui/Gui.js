@@ -3,8 +3,6 @@ import './Turntables.js';
 import Turntables from "./Turntables.js";
 import Equalizer from "./Equalizer/Equalizer";
 import UploadingVideo from "../video/UploadingVideo";
-import VideoFilter from "../video/VideoFilter";
-import Graph from './Graph';
 
 function App({synthesizer})  {
 
@@ -15,39 +13,48 @@ function App({synthesizer})  {
 
         <div id="big-box-1">
 
+
             <div id="box-of-sound-waves-1">
-                <Graph synthesizer={synthesizer}/>
                 <div className="horizontal-line-1"></div>
                 <p1></p1>
             </div>
 
-            <div id="dj-box-1">
+
+            <div id="dj-box-1-n">
 
                 <div id="tu-attack">
-                    <Turntables turntableId="turntable-attack" knobId="knob-attack" lineId="line-attack" width='50px' height='50px' onChange={value => synthesizer.setAttack(value)}/>
-                    <div id="word-attack">
-                        <p> Attack</p>
-                    </div>
-                </div>
 
-                <div id="tu-decay">
-                    <Turntables turntableId="turntable-decay" knobId="knob-decay" lineId="line-decay" width='50px' height='50px' onChange={value => synthesizer.setDecay(value)}/>
-                    <div id="word-decay">
+                    <Turntables turntableId="turntable-attack" knobId="knob-attack" lineId="line-attack" width='50px' height='50px'/>
+
+                    <div id="word-attack">
                         <p> Decay</p>
                     </div>
                 </div>
 
-                <div id="tu-sustain">
-                    <Turntables turntableId="turntable-sustain" knobId="knob-sustain" lineId="line-sustain" width='50px' height='50px' onChange={value => synthesizer.setSustain(value)}/>
-                    <div id="word-sustain">
-                        <p> Sustain</p>
+                <div id="tu-release">
+
+                    <Turntables turntableId="turntable-release" knobId="knob-release" lineId="line-release" width='50px' height='50px'/>
+
+                    <div id="word-release">
+                        <p> Attack</p>
                     </div>
                 </div>
 
-                <div id="tu-release">
-                    <Turntables turntableId="turntable-release" knobId="knob-release" lineId="line-release" width='50px' height='50px' onChange={value => synthesizer.setRelease(value)}/>
-                    <div id="word-release">
+                <div id="tu-sustain">
+
+                    <Turntables turntableId="turntable-sustain" knobId="knob-sustain" lineId="line-sustain" width='50px' height='50px'/>
+
+                    <div id="word-sustain">
                         <p> Release</p>
+                    </div>
+                </div>
+
+                <div id="tu-decay">
+
+                    <Turntables turntableId="turntable-decay" knobId="knob-decay" lineId="line-decay" width='50px' height='50px'/>
+
+                    <div id="word-decay">
+                        <p> Sustain</p>
                     </div>
                 </div>
 
@@ -116,6 +123,8 @@ function App({synthesizer})  {
 
             <div id="piano-box">
                 <div id="piano-keys">
+
+
                     <div className="white-key"></div>
                     <div className="black-key"></div>
                     <div className="white-key"></div>
@@ -134,7 +143,9 @@ function App({synthesizer})  {
                     <div className="white-key"></div>
                     <div className="black-key"></div>
                     <div className="white-key"></div>
+
                     <div className="white-key"></div>
+
                     <div className="black-key"></div>
                     <div className="white-key"></div>
                     <div className="black-key"></div>
@@ -159,20 +170,18 @@ function App({synthesizer})  {
                     <div className="white-key"></div>
                     <div className="black-key"></div>
                     <div className="white-key"></div>
-                    <div className="black-key"></div>
-                    <div className="white-key"></div>
-                    <div className="white-key"></div>
-                    <div className="black-key"></div>
-                    <div className="white-key"></div>
-
 
                 </div>
             </div>
 
 
             <div id="video-box">
-            <UploadingVideo />
-            <VideoFilter />
+                <UploadingVideo />
+                <div id="video-player">
+
+
+                </div>
+
             </div>
 
         </div>

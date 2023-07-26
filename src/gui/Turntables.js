@@ -1,14 +1,10 @@
 import React, {useState, useRef, useEffect} from 'react';
 
-const TurntableComponent = ({ turntableId, knobId, lineId, width, height, onChange }) => {
+const TurntableComponent = ({ turntableId, knobId, lineId, width, height }) => {
     const [rotations, setRotations] = useState(0);
     const isMouseDown = useRef(false);
     const prevMouseX = useRef(0);
 
-    if (onChange === undefined) {
-        onChange = () => {};
-    }
-    
     const handleMouseDown = () => {
         isMouseDown.current = true;
     };
@@ -29,15 +25,23 @@ const TurntableComponent = ({ turntableId, knobId, lineId, width, height, onChan
             prevMouseX.current = angle;
         }
     };
+    /*
+        const mapRotationToValue = (rotation) => {
+            // Umrechnung der Rotation in Grad in einen Wert zwischen 0 und 100
+            const value = ((rotation % 360) + 360) % 360; // Stellt sicher, dass der Wert immer positiv ist
+            const mappedValue = Math.round((value / 360) * 100);
+            return mappedValue;
+        };
+
+     */
 
     const mapRotationToValue = (rotation) => {
         // Umrechnung der Rotation in Grad in einen Wert zwischen 0 und 100
-        const value = ((rotation % 360) + 360) % 360; // Stellt sicher, dass der Wert immer positiv ist
-        const mappedValue = Math.round((value / 360) * 100);
-        return mappedValue;
+        const value = ((rotations % 360) + 360) % 360; // Stellt sicher, dass der Wert immer positiv ist
+        return Math.round((value / 360) * 100);
     };
 
-    useEffect(() => onChange(mapRotationToValue(rotations)), [rotations]);
+    console.log("V: " + mapRotationToValue(rotations));
 
     return (
         <div>
@@ -82,6 +86,8 @@ const TurntableComponent = ({ turntableId, knobId, lineId, width, height, onChan
                     }}
                 ></div>
             </div>
+            <p style={{ fontSize: '14px', marginLeft: '20px' }}> {mapRotationToValue(rotations)}</p>
+
         </div>
     );
 };

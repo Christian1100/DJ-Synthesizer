@@ -3,6 +3,8 @@ import VideoManipulator from "./VideoManipulator.js";
 
 const VideoFilter = ({synthesizer}) => {
 
+    let lastTimestamp = 0;
+    let circleData = [];
     let speed = 1.0;
 
     useEffect(() => {
@@ -54,8 +56,6 @@ const VideoFilter = ({synthesizer}) => {
         }
     }
 
-let circleData = [];
-let lastTimestamp = 0;
 function lightshow(frame, width, height) {
     if (circleData == null || circleData.length === 0) {
         initCircleData();
@@ -85,7 +85,6 @@ const callback = data => {
         result += value;
     }
     speed = result / 15000;
-    console.log(speed);
 };
 
 

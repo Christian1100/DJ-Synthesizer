@@ -2,46 +2,50 @@
 const React = require('react');
 const PropTypes = require('prop-types');
 
-// Defining styles for the different SVG elements
 const styles = {
-  line: {
-    fill: "none",
-    stroke: 'rgb(220, 220, 230)',
-    strokeWidth: "2",
-  },
-  timeline: {
-    fill: "none",
-    stroke: "#354550",
-    strokeWidth: "1",
-  },
-  phaseLine: {
-    fill: "none",
-    stroke: 'rgb(220, 220, 230)',
-    strokeWidth: "1",
-    strokeDasharray: '5,5',
-  },
-  background: {
-    fill: "rgb(40, 50, 60)",
-  },
-}
+    line: {
+      fill: "none",
+      stroke: "#6b6e6e",  
+    },
+    timeline: {
+      fill: "none",
+      stroke: "#354550",  
+      strokeWidth: "1",
+    },
+    phaseLine: {
+      fill: "none",
+      stroke: "#6b6e6e",  
+      strokeWidth: "1",
+      strokeDasharray: '5,5',
+    },
+    background: {
+      fill: "#2c2e2e",
+    },
+  }
+  
 
 // Dimensions of the Scalable Vector Graphics (SVG)
-const SvgDimension = { height: 500, width: 250 };
+const SvgDimension = { height: 30, width: 70 };
 
 // The main component for rendering the ADSR envelope
 const ADSR = (props) => {
-    // Destructuring props
     const { attack, decay, sustain, release, style, lineStyle, timelineStyle, phaseLineStyle } = props;
-    
-    // Destructuring SVG dimensions
     const { height, width } = SvgDimension;
+
+    // Maximum time value, you might need to adjust this according to your requirements
+    const MAX_TIME_VALUE = 100; 
+
+    // Scale the time values to the range of 0 to MAX_TIME_VALUE
+    const attackScaled = attack / MAX_TIME_VALUE;
+    const decayScaled = decay / MAX_TIME_VALUE;
+    const releaseScaled = release / MAX_TIME_VALUE;
 
     // Compute the lengths of each phase based on the total time and dimensions of SVG
     const computePhaseLengths = () => {
-        const totalTime = attack + decay + release;
-        const relativeAttack = attack / totalTime;
-        const relativeDecay = decay / totalTime;
-        const relativeRelease = release / totalTime;
+        const totalTime = attackScaled + decayScaled + releaseScaled;
+        const relativeAttack = attackScaled / totalTime;
+        const relativeDecay = decayScaled / totalTime;
+        const relativeRelease = releaseScaled / totalTime;
         const sustainWidth = 10;
         const remainingWidth = width - sustainWidth;
 

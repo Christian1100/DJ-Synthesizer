@@ -77,6 +77,14 @@ export default class Synthesizer {
 		this.frequencyDataArray = new Uint8Array(this.analyzer.frequencyBinCount);
 		this.frequencyCallbacks = new Set();
 		
+		this.delayGain = this.context.createGain();
+		this.delayGain.gain.setValueAtTime(0.0, this.context.currentTime);
+		this.delayGain.connect(this.analyzer);
+		this.delay = this.context.createDelay();
+		this.delay.delayTime.setValueAtTime(0.5, this.context.currentTime);
+		this.delay.connect(this.delayGain);
+		this.delayGain.connect(this.delay);
+		
 		setInterval(() => this.drawFrequency(), 100);
 		
 		this.eqNodes = [];
@@ -87,6 +95,7 @@ export default class Synthesizer {
 			
 			if (i === 0) {
 				node.type = "lowshelf";
+				node.connect(this.delay);
 			} else if (i === EQ_FREQUENCIES.length - 1) {
 				node.type = "highshelf";
 			} else {
@@ -157,26 +166,30 @@ export default class Synthesizer {
 	}
 	
 	setAttack(value) {
-		console.log("Attack: " + value);
-		
 		this.attack = value / 100;
 	}
 	
 	setDecay(value) {
-		console.log("Decay: " + value);
-		
 		this.decay = value / 100;
 	}
 	
 	setSustain(value) {
-		console.log("Sustain: " + value);
-		
 		this.sustain = value / 100;
 	}
 	
 	setRelease(value) {
-		console.log("Release: " + value);
-		
 		this.release = value / 100;
+	}
+	
+	setDelayTime(value) {
+		this.init();
+		
+		this.delay.delayTime.setValueAtTime(value / 100, this.context.currentTime);
+	}
+	
+	setDelayValue(value) {
+		this.init();
+		
+		this.delayGain.gain.setValueAtTime(value / 100, this.context.currentTime);
 	}
 }

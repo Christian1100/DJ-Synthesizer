@@ -117,16 +117,16 @@ function App({synthesizer})  {
                     </div>
                 </div>
                 <div id="tu-high">
-                    <Turntables turntableId="turntable-high" knobId="knob-high" lineId="line-high" width='100px' height='100px'/>
+                    <Turntables turntableId="turntable-high" knobId="knob-high" lineId="line-high" width='100px' height='100px' onChange={value => synthesizer.setDelayTime(value)}/>
                     <div id="t1-text-high">
-                        <p> High </p>
+                        <p>Delay Time</p>
                     </div>
                 </div>
 
                 <div id="tu-low-1">
-                    <Turntables turntableId="turntable-low-1" knobId="knob-low-1" lineId="line-low-1" width='100px' height='100px'/>
+                    <Turntables turntableId="turntable-low-1" knobId="knob-low-1" lineId="line-low-1" width='100px' height='100px' onChange={value => synthesizer.setDelayValue(value)}/>
                     <div id="t1-text-low-1">
-                        <p> Low </p>
+                        <p>Delay Amount</p>
                     </div>
                 </div>
 

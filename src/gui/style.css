@@ -1567,6 +1567,7 @@ p1{
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
+    flex-direction: row-reverse;
     height: 100%;
 }
 
@@ -1675,5 +1676,3 @@ p1{
     margin: 0 10px;
     cursor: pointer;
 }
-
-

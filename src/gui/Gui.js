@@ -17,6 +17,16 @@ function App({synthesizer})  {
     useEffect(() => synthesizer.setSustain(sustain), [synthesizer, sustain]);
     useEffect(() => synthesizer.setRelease(release), [synthesizer, release]);
     
+    const pianoKeyColors = [
+        "white-key", "black-key", "white-key", "black-key", "white-key",
+        "white-key", "black-key", "white-key", "black-key", "white-key", "black-key", "white-key",
+        "white-key", "black-key", "white-key", "black-key", "white-key",
+        "white-key", "black-key", "white-key", "black-key", "white-key", "black-key", "white-key",
+        "white-key", "black-key", "white-key", "black-key", "white-key",
+        "white-key", "black-key", "white-key", "black-key", "white-key", "black-key", "white-key",
+        "white-key"
+    ]
+    
     return (
 
 
@@ -133,54 +143,9 @@ function App({synthesizer})  {
 
             <div id="piano-box">
                 <div id="piano-keys">
-
-
-                    <div className="white-key"></div>
-                    <div className="black-key"></div>
-                    <div className="white-key"></div>
-                    <div className="black-key"></div>
-                    <div className="white-key"></div>
-
-                    <div className="white-key"></div>
-                    <div className="black-key"></div>
-                    <div className="white-key"></div>
-                    <div className="black-key"></div>
-                    <div className="white-key"></div>
-                    <div className="black-key"></div>
-                    <div className="white-key"></div>
-                    <div className="white-key"></div>
-                    <div className="black-key"></div>
-                    <div className="white-key"></div>
-                    <div className="black-key"></div>
-                    <div className="white-key"></div>
-
-                    <div className="white-key"></div>
-
-                    <div className="black-key"></div>
-                    <div className="white-key"></div>
-                    <div className="black-key"></div>
-                    <div className="white-key"></div>
-                    <div className="black-key"></div>
-                    <div className="white-key"></div>
-
-                    <div className="white-key"></div>
-                    <div className="black-key"></div>
-                    <div className="white-key"></div>
-                    <div className="black-key"></div>
-                    <div className="white-key"></div>
-                    <div className="white-key"></div>
-                    <div className="black-key"></div>
-                    <div className="white-key"></div>
-                    <div className="black-key"></div>
-                    <div className="white-key"></div>
-                    <div className="black-key"></div>
-                    <div className="white-key"></div>
-                    <div className="white-key"></div>
-                    <div className="black-key"></div>
-                    <div className="white-key"></div>
-                    <div className="black-key"></div>
-                    <div className="white-key"></div>
-
+                    {pianoKeyColors.map((color, i) => 
+                        <div className={color} onMouseDown={() => synthesizer.startNote(i)} onMouseUp={() => synthesizer.stopNote(i)} onMouseLeave={() => synthesizer.stopNote(i)}></div>
+                    )}
                 </div>
             </div>
 

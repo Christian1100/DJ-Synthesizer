@@ -75,10 +75,7 @@ export default class Synthesizer {
 		this.analyzer.fftSize = 512;
 		this.analyzer.connect(gain);
 		this.frequencyDataArray = new Uint8Array(this.analyzer.frequencyBinCount);
-		
-		if (!this.frequencyCallback) {
-			this.frequencyCallback = () => {};
-		}
+		this.frequencyCallbacks = new Set();
 		
 		setInterval(() => this.drawFrequency(), 100);
 		
@@ -121,12 +118,22 @@ export default class Synthesizer {
 	
 	drawFrequency() {
 		this.analyzer.getByteFrequencyData(this.frequencyDataArray);
-		this.frequencyCallback(this.frequencyDataArray);
+		
+		for (const callback of this.frequencyCallbacks.values()) {
+			callback(this.frequencyDataArray);
+		}
 	}
 	
-	setFrequencyCallback(callback) {
-		this.frequencyCallback = callback;
-		console.log(this.frequencyCallback);
+	addFrequencyCallback(callback) {
+		this.init();
+		
+		this.frequencyCallbacks.add(callback);
+	}
+	
+	removeFrequencyCallback(callback) {
+		this.init();
+		
+		this.frequencyCallbacks.delete(callback);
 	}
 	
 	startNote(index) {

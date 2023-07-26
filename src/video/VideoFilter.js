@@ -1,11 +1,12 @@
 import React, {useEffect} from 'react';
 import VideoManipulator from "./VideoManipulator.js";
 
+let speed = 1.0;
+
 const VideoFilter = ({synthesizer}) => {
 
     let lastTimestamp = 0;
     let circleData = [];
-    let speed = 1.0;
 
     useEffect(() => {
         synthesizer.addFrequencyCallback(callback);
@@ -111,7 +112,7 @@ function initCircleData() {
         offsetY: 0,
         color: {r: 0, g: 255, b: 0},
         radius: 130,
-        opacity: 0.6,
+        opacity: 0.4,
         timestamp: 0,
         nextTimestamp: 0,
     });

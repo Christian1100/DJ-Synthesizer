@@ -6,18 +6,19 @@ import UploadingVideo from "../video/UploadingVideo";
 import ADSR from './ADSR';
 import {useEffect, useState} from 'react';
 import VideoFilter from '../video/VideoFilter';
+import Graph from "./Graph";
 
 function App({synthesizer})  {
     const [attack, setAttack] = useState(0);
     const [decay, setDecay] = useState(0);
     const [sustain, setSustain] = useState(0);
     const [release, setRelease] = useState(0);
-    
+
     useEffect(() => synthesizer.setAttack(attack), [synthesizer, attack]);
     useEffect(() => synthesizer.setDecay(decay), [synthesizer, decay]);
     useEffect(() => synthesizer.setSustain(sustain), [synthesizer, sustain]);
     useEffect(() => synthesizer.setRelease(release), [synthesizer, release]);
-    
+
     const pianoKeyColors = [
         "white-key", "black-key", "white-key", "black-key", "white-key",
         "white-key", "black-key", "white-key", "black-key", "white-key", "black-key", "white-key",
@@ -27,17 +28,16 @@ function App({synthesizer})  {
         "white-key", "black-key", "white-key", "black-key", "white-key", "black-key", "white-key",
         "white-key"
     ]
-    
+
     return (
 
 
         <div id="big-box-1">
-            <ADSR attack={attack} decay={decay} sustain={sustain} release={release} />
+
 
 
             <div id="box-of-sound-waves-1">
-                <div className="horizontal-line-1"></div>
-                <p1></p1>
+                <ADSR attack={attack} decay={decay} sustain={sustain/100} release={release} />
             </div>
 
 
@@ -84,13 +84,18 @@ function App({synthesizer})  {
 
             <div id="box-of-sound-waves-2">
 
-                <Equalizer synthesizer={synthesizer}/>
+                <Graph synthesizer={synthesizer}/>
 
-                <div className="horizontal-line-2"></div>
+
                 <p1></p1>
             </div>
+            <div id="box-of-sound-waves-2-e">
 
-            <div id="dj-box-2">
+                <Equalizer synthesizer={synthesizer}/>
+
+            </div>
+
+            <div id="dj-box-2-n">
 
 
                 <div id="tu-plus-min-low">
@@ -144,7 +149,7 @@ function App({synthesizer})  {
 
             <div id="piano-box">
                 <div id="piano-keys">
-                    {pianoKeyColors.map((color, i) => 
+                    {pianoKeyColors.map((color, i) =>
                         <div className={color} onMouseDown={() => synthesizer.startNote(i)} onMouseUp={() => synthesizer.stopNote(i)} onMouseLeave={() => synthesizer.stopNote(i)}></div>
                     )}
                 </div>

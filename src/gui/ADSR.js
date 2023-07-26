@@ -5,16 +5,16 @@ const PropTypes = require('prop-types');
 const styles = {
     line: {
       fill: "none",
-      stroke: "#6b6e6e",  
+      stroke: "#6b6e6e",
     },
     timeline: {
       fill: "none",
-      stroke: "#354550",  
+      stroke: "#354550",
       strokeWidth: "1",
     },
     phaseLine: {
       fill: "none",
-      stroke: "#6b6e6e",  
+      stroke: "#6b6e6e",
       strokeWidth: "1",
       strokeDasharray: '5,5',
     },
@@ -22,10 +22,10 @@ const styles = {
       fill: "#2c2e2e",
     },
   }
-  
+
 
 // Dimensions of the Scalable Vector Graphics (SVG)
-const SvgDimension = { height: 30, width: 70 };
+const SvgDimension = { height: 36, width: 100 };
 
 // The main component for rendering the ADSR envelope
 const ADSR = (props) => {

@@ -1,6 +1,16 @@
+import React, {useEffect} from 'react';
 import VideoManipulator from "./VideoManipulator.js";
 
-const VideoFilter = () => {
+const VideoFilter = ({synthesizer}) => {
+
+    let speed = 1.0;
+
+    useEffect(() => {
+        synthesizer.addFrequencyCallback(callback);
+        
+        return () => synthesizer.removeFrequencyCallback(callback);
+    }, [synthesizer]);
+
     render();
 
     function render() {
@@ -62,12 +72,22 @@ function lightshow(frame, width, height) {
         }
         const deltaTime = (currentTime - lastTimestamp) / (circle.nextTimestamp - circle.timestamp);
 
-        circle.centerX += circle.offsetX * deltaTime;
-        circle.centerY += circle.offsetY * deltaTime;
+        circle.centerX += circle.offsetX * deltaTime * speed;
+        circle.centerY += circle.offsetY * deltaTime * speed;
         generateCircle(frame.data, width, height, circle);
     });
     lastTimestamp = currentTime;
 }
+
+const callback = data => {
+    let result = 0;
+    for (const value of data) {
+        result += value;
+    }
+    speed = result / 15000;
+    console.log(speed);
+};
+
 
 function getRandomNumber(min, max) {
     return Math.random() * (max - min) + min;

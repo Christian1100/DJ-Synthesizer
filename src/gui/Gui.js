@@ -3,6 +3,7 @@ import './Turntables.js';
 import Turntables from "./Turntables.js";
 import Equalizer from "./Equalizer/Equalizer";
 import UploadingVideo from "../video/UploadingVideo";
+import VideoFilter from '../video/VideoFilter';
 
 function App({synthesizer})  {
 
@@ -177,10 +178,7 @@ function App({synthesizer})  {
 
             <div id="video-box">
                 <UploadingVideo />
-                <div id="video-player">
-
-
-                </div>
+                <VideoFilter synthesizer={synthesizer} />
 
             </div>
 

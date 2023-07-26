@@ -67,13 +67,13 @@ export default class Synthesizer {
 		
 		this.context = new AudioContext();
 		
-		const gain = this.context.createGain();
-		gain.gain.value = VOLUME;
-		gain.connect(this.context.destination);
+		this.gain = this.context.createGain();
+		this.gain.gain.value = VOLUME;
+		this.gain.connect(this.context.destination);
 		
 		this.analyzer = this.context.createAnalyser();
 		this.analyzer.fftSize = 512;
-		this.analyzer.connect(gain);
+		this.analyzer.connect(this.gain);
 		this.frequencyDataArray = new Uint8Array(this.analyzer.frequencyBinCount);
 		this.frequencyCallbacks = new Set();
 		
@@ -85,7 +85,7 @@ export default class Synthesizer {
 		this.delay.connect(this.delayGain);
 		this.delayGain.connect(this.delay);
 		
-		setInterval(() => this.drawFrequency(), 1000);
+		setInterval(() => this.drawFrequency(), 200);
 		
 		this.eqNodes = [];
 		let previousNode = this.analyzer;
@@ -155,6 +155,12 @@ export default class Synthesizer {
 		this.init();
 		
 		this.notes[index].stop();
+	}
+	
+	setVolume(value) {
+		this.init();
+		
+		this.gain.gain.setValueAtTime(value / 500, this.context.currentTime);
 	}
 	
 	setEqualizer(index, value) {

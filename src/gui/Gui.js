@@ -116,7 +116,7 @@ function App({synthesizer})  {
 
                 <div id="sliders-box">
                     <div id="sliders">
-                        <input type="range" id="slider1" min="0" max="100"/>
+                        <input type="range" id="slider1" min="0" max="100" onChange={event => synthesizer.setVolume(100 - event.target.value)}/>
                     </div>
 
                 </div>
